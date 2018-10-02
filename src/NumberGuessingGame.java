@@ -10,7 +10,7 @@ public class NumberGuessingGame {
         int pickedNumber;
         int guessedNumber;
         boolean gotItRight;
-        int ;
+        String again;
 
         pickedNumber = (int) (Math.random() * 100);
         keyboard = new Scanner(System.in);
@@ -18,12 +18,13 @@ public class NumberGuessingGame {
 
 
 
-        //System.out.println(pickedNumber);
+        //System.out.println(pickedNumber
 
+        do {
             System.out.println("Please guess a number.");
             guessedNumber = keyboard.nextInt();
 
-            while (!gotItRight) {
+
 
 
                 if (guessedNumber < pickedNumber) {
@@ -32,18 +33,22 @@ public class NumberGuessingGame {
                 } else if (guessedNumber > pickedNumber) {
                     System.out.println("You number is too high.");
 
-                } else if (guessedNumber == pickedNumber) {
+                } else   {
                     System.out.println("You guessed right! Congratulations!");
 
-                    gotItRight = true;
-                    break;
+
+                    System.out.println("Would you like to play again?");
+                    again = keyboard.next();
                 }
 
                 System.out.println("Please guess again.");
                 guessedNumber = keyboard.nextInt();
 
-            }
-            //System.out.println("I am now below the while loop");
+
+
+            }while(again.equals("yes")||guessedNumber!=pickedNumber);
+            System.out.println("Oh, well then bye.");
+
 
 
 
