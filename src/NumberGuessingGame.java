@@ -9,45 +9,47 @@ public class NumberGuessingGame {
         Scanner keyboard;
         int pickedNumber;
         int guessedNumber;
-        boolean gotItRight;
+
         String again;
 
-        pickedNumber = (int) (Math.random() * 100);
+
         keyboard = new Scanner(System.in);
-        gotItRight = false;
 
 
 
-        //System.out.println(pickedNumber
+
+
 
         do {
+            pickedNumber = (int) (Math.random() * 100);
+            System.out.println(pickedNumber);
             System.out.println("Please guess a number.");
             guessedNumber = keyboard.nextInt();
+            again = "";
 
 
-
-
+            while (guessedNumber != pickedNumber) {
                 if (guessedNumber < pickedNumber) {
                     System.out.println("Your number is too low.");
 
-                } else if (guessedNumber > pickedNumber) {
+                }
+                else  {
                     System.out.println("You number is too high.");
 
-                } else   {
-                    System.out.println("You guessed right! Congratulations!");
-
-
-                    System.out.println("Would you like to play again?");
-                    again = keyboard.next();
                 }
-
-                System.out.println("Please guess again.");
+                System.out.println("Guess again please.");
                 guessedNumber = keyboard.nextInt();
+            }
+            if (guessedNumber == pickedNumber) {
+                System.out.println("You guessed right! Congratulations!");
 
 
-
-            }while(again.equals("yes")||guessedNumber!=pickedNumber);
+                System.out.println("Would you like to play again?");
+                again = keyboard.next().toLowerCase();
+            }
+        }while(again.equals("yes")); {
             System.out.println("Oh, well then bye.");
+        }
 
 
 
